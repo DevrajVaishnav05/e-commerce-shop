@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const productSchema = mongoose.Schema({
     image:String,
     name:String,
@@ -11,8 +10,5 @@ const productSchema = mongoose.Schema({
     bgcolor:String,
     panelcolor:String,
     textcolor:String
-
-
 })
-
 module.exports = mongoose.model("product",productSchema);

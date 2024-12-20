@@ -1,22 +1,17 @@
 import mongoose from "mongoose";
 
-const userSchema = mongoose.Schema({
+const ownerSchema = mongoose.Schema({
     fullname:String,
     email:String,
     password:String,
-    card:{
-        type:Array,
-        default:[]
-    },
+    
     isadmin:Boolean,
-    orders:{
+    products:{
         type:Array,
         default:[]
     },
     contact:number,
-    picture:String
-
-
+    picture:String,
+    gstin:String,
 })
-
-module.exports = mongoose.model("user",userSchema);
+module.exports = mongoose.model("owner",ownerSchema);
