@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Registration</title>
+</head>
+<body>
+    <h1>Owner Registration</h1>
+
+    <!-- Form to submit data to the /owners route -->
+    <form action="/owners" method="POST">
+        <input type="text" placeholder="Full Name" name="fullname" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="password" placeholder="Password" name="password" >
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Error message display if there is an error -->
+    <% if (typeof error !== 'undefined' && error) { %>
+        <div class="error-message" style="color: red; margin-top: 10px;">
+            <p><%= error %></p>
+        </div>
+    <% } %>
+
+</body>
+</html>

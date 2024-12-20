@@ -3,10 +3,11 @@ import express from 'express';
 const router = express.Router();
 import ownerModel from "../models/owner-model.js";
 router.get('/', (req, res) => {
-    res.send('<h1> this company is  owners devraj vaishanv </h1>' );
+    res.render("index");
+    // res.send('<h1> this company is  owners devraj vaishanv </h1>' );
 });
 if (process.env.NODE_ENV === "development") {
-    router.post('/create', async (req, res) => {
+    router.post('/', async (req, res) => {
         try {
             // Check if owner already exists
             const owners = await ownerModel.find();
@@ -16,11 +17,10 @@ if (process.env.NODE_ENV === "development") {
 
             // Extract data from request body
             const { fullname, email, password } = req.body;
-            console.log(fullname, email, password);
-            
-
+           
             if (!fullname || !email || !password) {
-                return res.status(400).send("All fields are required.");
+                // If validation fails, render the form again with an error message
+                return res.render('index', { error: 'All fields are required.' });  // Pass error to EJS template
             }
             // Create a new owner
             const createOwner = await ownerModel.create({
