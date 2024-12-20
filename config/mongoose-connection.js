@@ -1,14 +1,13 @@
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
+// import dbgr from "debug" 
+// const dbgr = debug('development:mongoose');
+
 // mongoose.connect("mongodb://127.0.0.1:27017/apnishop").then(function(){
 //     console.log("connection db ");
 // }).catch(function(err){
 //     console.log( " Show the error" ,err);
 // })
 // module.exports = mongoose;
-
-
-
-import mongoose from "mongoose";
 
 const dbConnect = async () => {
   try {
