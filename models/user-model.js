@@ -8,15 +8,15 @@ const userSchema = mongoose.Schema({
         type:Array,
         default:[]
     },
-    isadmin:Boolean,
     orders:{
         type:Array,
         default:[]
     },
-    contact:number,
+    role:String,
+    contact:Number,
     picture:String
-
-
 })
 
-module.exports = mongoose.model("user",userSchema);
+   const  user = mongoose.model("user",userSchema);
+
+   export default user;

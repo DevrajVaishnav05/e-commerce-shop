@@ -9,20 +9,14 @@ router.get('/', (req, res) => {
 if (process.env.NODE_ENV === "development") {
     router.post('/', async (req, res) => {
         try {
-            // Check if owner already exists
             const owners = await ownerModel.find();
             if (owners.length > 0) {
                 return res.status(400).send("Owner already exists");
             }
-
-            // Extract data from request body
             const { fullname, email, password } = req.body;
-           
             if (!fullname || !email || !password) {
-                // If validation fails, render the form again with an error message
-                return res.render('index', { error: 'All fields are required.' });  // Pass error to EJS template
+                return res.render('index', { error: 'All fields are required.' }); 
             }
-            // Create a new owner
             const createOwner = await ownerModel.create({
                 fullname,
                 email,
@@ -39,10 +33,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 
-
-
-router.get('/:id', (req, res) => {
-    res.send(`Details of owner with ID: ${req.params.id}`);
+router.get('/admin', (req, res) => {
+    let success = req.flash("success");
+    let error = req.flash("error");
+    res.render("createproducts",{success,error});
 });
+
 
 export default router;

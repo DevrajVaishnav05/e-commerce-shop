@@ -1,15 +1,12 @@
 import express from 'express';
-
 const router = express.Router();
+import {registerUser,loginUser} from '../controllers/userController.js';
 
 // Define your user routes here
-router.get('/', (req, res) => {
-    res.send('List of users');
-});
 
-router.post('/', (req, res) => {
-    res.send('Create a new user');
-});
+
+router.post('/register',registerUser );
+router.post('/login',loginUser );
 
 router.get('/:id', (req, res) => {
     res.send(`Details of user with ID: ${req.params.id}`);
