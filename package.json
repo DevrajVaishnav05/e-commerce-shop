@@ -4,8 +4,12 @@
   "description": "e-commerce por",
   "type": "module",
   "main": "index.js",
+  "engines": {
+    "node":"22.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "devraj vaishnav",
   "license": "ISC",
